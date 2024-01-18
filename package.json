@@ -1,0 +1,60 @@
+{
+  "name": "rspack-plugin-cli-copy",
+  "version": "0.0.1",
+  "packageManager": "pnpm@8.14.1",
+  "description": "Start the project and automatically copy the cli network url",
+  "author": "wChenonly",
+  "license": "MIT",
+  "homepage": "https://github.com/rspack-contrib/rspack-plugin-cli-copy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rspack-contrib/rspack-plugin-cli-copy.git"
+  },
+  "bugs": "https://github.com/rspack-contrib/rspack-plugin-cli-copy/issues",
+  "keywords": [
+    "rspack",
+    "rsbuild",
+    "cliCopy"
+  ],
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "play:example": "nr build && nr -C example dev",
+    "build": "tsup",
+    "prepublishOnly": "nr build",
+    "release": "bumpp  --commit 'release: rspack-plugin-cli-copy v' &&  pnpm publish"
+  },
+  "dependencies": {
+    "clipboardy": "^4.0.0"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.21.12",
+    "@modern-js/tsconfig": "2.9.0",
+    "@rsbuild/core": "^0.3.3",
+    "@rspack/core": "^0.5.1",
+    "@rspack/dev-server": "^0.5.1",
+    "@types/node": "^20.11.5",
+    "bumpp": "^9.3.0",
+    "nano-staged": "^0.8.0",
+    "pnpm": "^8.14.1",
+    "prettier": "^3.2.4",
+    "simple-git-hooks": "^2.9.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "nano-staged": {
+    "*.{ts,tsx,js,jsx,md}": "prettier --write"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx nano-staged"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
