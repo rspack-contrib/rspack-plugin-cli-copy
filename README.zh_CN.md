@@ -14,19 +14,38 @@
 
 ```bash
 npm install rspack-plugin-cli-copy -D
+
 pnpm add rspack-plugin-cli-copy -D
 ```
 
-## 用法
+## 使用
 
-- rspack.config.js
+### rspack 配置
+
+- rspack.config.ts
 
 ```js
-const { pluginCliCopy } = require('rspack-plugin-cli-copy')
-/**
- * @type {import('@rspack/cli').Configuration}
- */
-module.exports = {
-  plugins: [new cliCopyPlugin()]
-}
+import { defineConfig } from '@rspack/cli'
+import { rspackCliCopyPlugin } from 'rspack-plugin-cli-copy'
+
+export default defineConfig({
+  plugins: [new rspackCliCopyPlugin()]
+})
 ```
+
+![](./instructions/rspack.png)
+
+### rsbuild 配置
+
+- rsbuild.config.ts
+
+```ts
+import { defineConfig } from '@rsbuild/core'
+import { rsbuildCliCopyPlugin } from 'rspack-plugin-cli-copy'
+
+export default defineConfig({
+  plugins: [rsbuildCliCopyPlugin()]
+})
+```
+
+![](./instructions/rsbuild.png)

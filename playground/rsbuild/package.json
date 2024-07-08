@@ -1,0 +1,19 @@
+{
+  "name": "s",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.19"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "1.0.0-alpha.5",
+    "@rsbuild/plugin-vue": "1.0.0-alpha.5",
+    "typescript": "^5.5.2",
+    "rspack-plugin-cli-copy": "workspace:*"
+  }
+}

@@ -1,20 +1,26 @@
-const rspack = require('@rspack/core')
-const { VueLoaderPlugin } = require('vue-loader')
-const { cliCopyPlugin } = require('rspack-plugin-cli-copy')
+import { defineConfig } from '@rspack/cli'
+import { type RspackPluginFunction, rspack } from '@rspack/core'
+import { VueLoaderPlugin } from 'vue-loader'
+import { rspackCliCopyPlugin } from 'rspack-plugin-cli-copy'
 
-/** @type {import('@rspack/cli').Configuration} */
-
-const config = {
+export default defineConfig({
   context: __dirname,
   entry: {
-    main: './src/main.js'
+    main: './src/main.ts'
+  },
+  resolve: {
+    extensions: ['...', '.ts', '.vue']
   },
   plugins: [
-    new VueLoaderPlugin(),
+    new VueLoaderPlugin() as RspackPluginFunction,
     new rspack.HtmlRspackPlugin({
       template: './index.html'
     }),
-    new cliCopyPlugin()
+    new rspack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false
+    }),
+    new rspackCliCopyPlugin()
   ],
   module: {
     rules: [
@@ -34,8 +40,7 @@ const config = {
               sourceMap: true,
               jsc: {
                 parser: {
-                  syntax: 'typescript',
-                  tsx: false
+                  syntax: 'typescript'
                 }
               },
               env: {
@@ -51,6 +56,7 @@ const config = {
       }
     ]
   },
-  devServer: {}
-}
-module.exports = config
+  experiments: {
+    css: true
+  }
+})

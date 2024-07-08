@@ -1,7 +1,7 @@
 {
   "name": "rspack-plugin-cli-copy",
   "version": "0.0.1",
-  "packageManager": "pnpm@8.14.1",
+  "packageManager": "pnpm@9.5.0",
   "description": "Start the project and automatically copy the cli network url",
   "author": "wChenonly",
   "license": "MIT",
@@ -30,23 +30,24 @@
     "release": "bumpp  --commit 'release: rspack-plugin-cli-copy v' &&  pnpm publish"
   },
   "dependencies": {
+    "@napi-rs/clipboard": "^1.1.2",
     "clipboardy": "^4.0.0"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.12",
     "@modern-js/tsconfig": "2.9.0",
-    "@rsbuild/core": "^0.3.3",
-    "@rspack/core": "^0.5.1",
-    "@rspack/dev-server": "^0.5.1",
-    "@types/node": "^20.11.5",
-    "bumpp": "^9.3.0",
+    "@rsbuild/core": "1.0.0-alpha.5",
+    "@rspack/core": "^0.7.5",
+    "@rspack/dev-server": "^0.7.5",
+    "@types/node": "^20.14.10",
+    "bumpp": "^9.4.1",
     "nano-staged": "^0.8.0",
-    "pnpm": "^8.14.1",
-    "prettier": "^3.2.4",
-    "simple-git-hooks": "^2.9.0",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3",
-    "webpack-dev-server": "^4.15.1"
+    "pnpm": "^9.5.0",
+    "prettier": "^3.3.2",
+    "simple-git-hooks": "^2.11.1",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3",
+    "webpack-dev-server": "^5.0.4"
   },
   "nano-staged": {
     "*.{ts,tsx,js,jsx,md}": "prettier --write"

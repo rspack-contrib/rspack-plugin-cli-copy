@@ -6,30 +6,46 @@
 <a href="https://www.npmjs.com/package/rspack-plugin-cli-copy" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/rspack-plugin-cli-copy?color=50a36f&label="></a>
 </p>
 
-> [!IMPORTANT]
-> WIP
-
 English | [简体中文](./README.zh_CN.md)
 
 ![](./instructions/copy.jpg)
 
-## 安装
+## Install
 
 ```bash
 npm install rspack-plugin-cli-copy -D
+
 pnpm add rspack-plugin-cli-copy -D
 ```
 
-## 用法
+## Usage
 
-- rspack.config.js
+### rspack config
+
+- rspack.config.ts
 
 ```js
-const { pluginCliCopy } = require('rspack-plugin-cli-copy')
-/**
- * @type {import('@rspack/cli').Configuration}
- */
-module.exports = {
-  plugins: [new cliCopyPlugin()]
-}
+import { defineConfig } from '@rspack/cli'
+import { rspackCliCopyPlugin } from 'rspack-plugin-cli-copy'
+
+export default defineConfig({
+  plugins: [new rspackCliCopyPlugin()]
+})
 ```
+
+![](./instructions/rspack.png)
+
+### rsbuild config
+
+- rsbuild.config.ts
+
+```ts
+import { defineConfig } from '@rsbuild/core'
+import { rsbuildCliCopyPlugin } from 'rspack-plugin-cli-copy'
+
+export default defineConfig({
+  plugins: [rsbuildCliCopyPlugin()]
+})
+```
+
+![](./instructions/rsbuild.png)
