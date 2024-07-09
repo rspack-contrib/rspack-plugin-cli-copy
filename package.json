@@ -30,8 +30,7 @@
     "release": "bumpp  --commit 'release: rspack-plugin-cli-copy v'"
   },
   "dependencies": {
-    "@napi-rs/clipboard": "^1.1.2",
-    "webpack-dev-server": "^5.0.4"
+    "@napi-rs/clipboard": "^1.1.2"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.12",
