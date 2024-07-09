@@ -24,21 +24,19 @@
     "dist"
   ],
   "scripts": {
-    "play:example": "nr build && nr -C example dev",
+    "play:rsbuild": "nr build && nr -C playground/rsbuild dev",
+    "play:rspack": "nr build && nr -C playground/rspack dev",
     "build": "tsup",
-    "prepublishOnly": "nr build",
     "release": "bumpp  --commit 'release: rspack-plugin-cli-copy v' &&  pnpm publish"
   },
   "dependencies": {
     "@napi-rs/clipboard": "^1.1.2",
-    "clipboardy": "^4.0.0"
+    "webpack-dev-server": "^5.0.4"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.12",
-    "@modern-js/tsconfig": "2.9.0",
     "@rsbuild/core": "1.0.0-alpha.5",
     "@rspack/core": "^0.7.5",
-    "@rspack/dev-server": "^0.7.5",
     "@types/node": "^20.14.10",
     "bumpp": "^9.4.1",
     "nano-staged": "^0.8.0",
@@ -46,8 +44,7 @@
     "prettier": "^3.3.2",
     "simple-git-hooks": "^2.11.1",
     "tsup": "^8.1.0",
-    "typescript": "^5.5.3",
-    "webpack-dev-server": "^5.0.4"
+    "typescript": "^5.5.3"
   },
   "nano-staged": {
     "*.{ts,tsx,js,jsx,md}": "prettier --write"
