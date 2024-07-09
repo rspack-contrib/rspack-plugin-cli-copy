@@ -30,7 +30,7 @@ function print(v: string) {
   try {
     if (platform() === 'win32') {
       import('clipboardy').then(clipboardy => {
-        clipboardy.default.writeSync(v)
+        clipboardy.default.write(v)
       })
     } else {
       import('@napi-rs/clipboard').then(({ Clipboard }) => {
