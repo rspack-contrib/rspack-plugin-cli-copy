@@ -5,7 +5,7 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   dts: true,
   clean: true,
-  external: ['webpack-dev-server'],
+  external: [],
   target: 'node10',
   shims: true
 })
