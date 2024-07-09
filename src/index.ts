@@ -1,9 +1,6 @@
-import { Clipboard } from '@napi-rs/clipboard'
-import { type NetworkInterfaceInfo, networkInterfaces } from 'node:os'
+import { type NetworkInterfaceInfo, networkInterfaces, platform } from 'node:os'
 import type { RspackPluginInstance, Compiler } from '@rspack/core'
 import type { RsbuildPlugin } from '@rsbuild/core'
-
-const clipboard = new Clipboard()
 
 export class rspackCliCopyPlugin implements RspackPluginInstance {
   apply(compiler: Compiler) {
@@ -31,7 +28,16 @@ export const rsbuildCliCopyPlugin = (): RsbuildPlugin => ({
 
 function print(v: string) {
   try {
-    clipboard.setText(v)
+    if (platform() === 'win32') {
+      import('clipboardy').then(clipboardy => {
+        clipboardy.default.writeSync(v)
+      })
+    } else {
+      import('@napi-rs/clipboard').then(({ Clipboard }) => {
+        const clipboard = new Clipboard()
+        clipboard.setText(v)
+      })
+    }
     console.log(`\n  ${cyan('Copied to clipboard Network URL:')} ${v} \n`)
   } catch (error) {
     console.error(`\n  ${red('Failed to copy to clipboard Network URL:')} ${JSON.stringify(error)} \n`)
