@@ -27,7 +27,7 @@
     "play:rsbuild": "nr build && nr -C playground/rsbuild dev",
     "play:rspack": "nr build && nr -C playground/rspack dev",
     "build": "tsup",
-    "release": "bumpp  --commit 'release: rspack-plugin-cli-copy v' &&  pnpm publish"
+    "release": "bumpp  --commit 'release: rspack-plugin-cli-copy v'"
   },
   "dependencies": {
     "@napi-rs/clipboard": "^1.1.2",
