@@ -4,6 +4,7 @@
   "packageManager": "pnpm@9.5.0",
   "description": "Start the project and automatically copy the cli network url",
   "author": "wChenonly",
+  "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/rspack-contrib/rspack-plugin-cli-copy",
   "repository": {
@@ -16,10 +17,15 @@
     "rsbuild",
     "cliCopy"
   ],
-  "sideEffects": false,
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
