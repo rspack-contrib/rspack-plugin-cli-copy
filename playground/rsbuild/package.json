@@ -8,12 +8,12 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
-    "vue": "^3.4.19"
+    "vue": "^3.4.38"
   },
   "devDependencies": {
     "@rsbuild/core": "1.0.0-alpha.5",
     "@rsbuild/plugin-vue": "1.0.0-alpha.5",
-    "typescript": "^5.5.2",
-    "rspack-plugin-cli-copy": "workspace:*"
+    "rspack-plugin-cli-copy": "workspace:*",
+    "typescript": "^5.5.4"
   }
 }

@@ -15,7 +15,7 @@
     "cross-env": "^7.0.3",
     "rspack-plugin-cli-copy": "workspace:*",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "vue-loader": "^17.4.2"
   }
 }
