@@ -1,6 +1,7 @@
 import { type NetworkInterfaceInfo, networkInterfaces } from 'node:os'
 import type { RspackPluginInstance, Compiler } from '@rspack/core'
 import type { RsbuildPlugin } from '@rsbuild/core'
+import { Clipboard } from '@napi-rs/clipboard'
 
 export class rspackCliCopyPlugin implements RspackPluginInstance {
   apply(compiler: Compiler) {
@@ -28,10 +29,8 @@ export const rsbuildCliCopyPlugin = (): RsbuildPlugin => ({
 
 function print(v: string) {
   try {
-    import('@napi-rs/clipboard').then(({ Clipboard }) => {
-      const clipboard = new Clipboard()
-      clipboard.setText(v)
-    })
+    const clipboard = new Clipboard()
+    clipboard.setText(v)
     console.log(`\n  ${cyan('Copied to clipboard Network URL:')} ${v} \n`)
   } catch (error) {
     console.error(`\n  ${red('Failed to copy to clipboard Network URL:')} ${JSON.stringify(error)} \n`)
